@@ -5,29 +5,12 @@
     <title>Список книг</title>
 </head>
 <body>
-<!--    <h1>Список книг</h1>-->
-<!--    <table border="1">-->
-<!--        <tr>-->
-<!--            <th>ID</th>-->
-<!--            <th>Название</th>-->
-<!--            <th>Автор</th>-->
-<!--            <th>Цена</th>-->
-<!--        </tr>-->
-<!--        {% for book in books %}-->
-<!--        <tr>-->
-<!--            <td>{{ book.id }}</td>-->
-<!--            <td>{{ book.title }}</td>-->
-<!--            <td>{{ book.author }}</td>-->
-<!--            <td>{{ book.price }} руб.</td>-->
-<!--        </tr>-->
-<!--        {% endfor %}-->
-<!--    </table>-->
     <h1>Каталог книг</h1>
     <a href="{% url 'book_create' %}">Добавить новую книгу</a>
     <ul>
       {% for book in books %}
         <li>
-          {{ book.title }} — {{ book.author }} — {{ book.price }} ₽
+          {{ book.title }} — {{ book.author }} — {{ book.price }} руб.
           <a href="{% url 'book_edit' book.pk %}">Редактировать</a>
           <a href="{% url 'book_delete' book.pk %}">Удалить</a>
         </li>

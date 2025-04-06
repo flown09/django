@@ -8,10 +8,8 @@ def homePageView(request):
     return HttpResponse('Hello, World!')
 
 def book_list(request):
-    # books = Book.objects.all()
-    # return render(request, 'book_list.html', {'books': books})
     books = Book.objects.all()
-    paginator = Paginator(books, 5)  # 5 книг на страницу
+    paginator = Paginator(books, 5)
     page = request.GET.get('page')
     books = paginator.get_page(page)
     return render(request, 'book_list.html', {'books': books})
