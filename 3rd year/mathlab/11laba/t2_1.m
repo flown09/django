@@ -1,0 +1,18 @@
+f = @(x) log(x);
+a = 3;
+b = 5;
+N = 100;
+disp('Метод правых прямоугольников: ');
+disp(right_rect(f, a, b, N));
+disp('Метод левых прямоугольников: ');
+disp(left_rect(f, a, b, N));
+disp('Метод средних прямоугольников: ');
+disp(middle_rect(f, a, b, N));
+disp('Метод трапеций: ');
+disp(trapezoidal(f, a, b, N));
+disp('Метод Симпсона: ');
+disp(simpson(f, a, b, N));
+disp('Символьное интегрирование: ');
+syms x;
+I = int(log(x), x, 3, 5);
+disp(double(I));

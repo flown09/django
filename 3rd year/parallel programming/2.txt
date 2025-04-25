@@ -1,0 +1,6 @@
+1. Варианты задания количества нитей:
+	omp_set_num_threads(k);
+	Переменная окружения OMP_NUM_THREADS
+	num_threads(k) в #pragma omp parallel
+2. Если указаны оба варианта, приоритет у num_threads(k) в #pragma omp parallel.
+3. omp_set_num_threads(k); устанавливает количество потоков по умолчанию для всех параллельных областей.

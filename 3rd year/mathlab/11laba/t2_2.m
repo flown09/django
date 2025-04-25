@@ -1,0 +1,18 @@
+f = @(x) sqrt(1 + cos(x).^2);
+a = 0;
+b = 3;
+N = 100;
+disp('Метод правых прямоугольников: ');
+disp(right_rect(f, a, b, N));
+disp('Метод левых прямоугольников: ');
+disp(left_rect(f, a, b, N));
+disp('Метод средних прямоугольников: ');
+disp(middle_rect(f, a, b, N));
+disp('Метод трапеций: ');
+disp(trapezoidal(f, a, b, N));
+disp('Метод Симпсона: ');
+disp(simpson(f, a, b, N));
+disp('Символьное интегрирование: ');
+syms x;
+I = int(sqrt(1 + cos(x)^2), x, 0, 3);
+disp(double(I));

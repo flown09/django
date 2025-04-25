@@ -1,0 +1,15 @@
+x_a = [pi/8, 2*pi/8, 3*pi/8, 4*pi/8];
+y_a = cot(x_a);
+xx = linspace(pi/8, 4*pi/8, 100);
+yy_lagrange_a = lagrange(x_a, y_a, xx);
+yy_newton_a = newton(x_a, y_a, xx);
+figure;
+plot(xx, yy_lagrange_a, 'b', 'LineWidth', 1.5);
+hold on;
+plot(xx, yy_newton_a, 'r--', 'LineWidth', 1.5);
+plot(x_a, y_a, 'ko', 'MarkerSize', 8, 'LineWidth', 2);
+xlabel('x');
+ylabel('y');
+legend('Лагранж', 'Ньютон', 'Узлы интерполяции');
+title('Интерполяция для узлов a)');
+grid on;

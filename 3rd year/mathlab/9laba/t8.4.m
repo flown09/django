@@ -1,0 +1,23 @@
+a=pi/8;
+b=pi/2;
+fun=@(x) cot(x);
+k=7;
+x=linspace(a,b,k);
+y=fun(x);
+xx=linspace(a,b,500);
+yy=lagrange(x,y,xx);
+err=yy-fun(xx);
+m=0:k-1;
+xcheb=0.5*((b-a)*cos((2*m+1)/k*0.5*pi)+a+b);
+ycheb=fun(xcheb);
+yy=lagrange(xcheb,ycheb,xx);
+errcheb=yy-fun(xx);
+figure('Color','w')
+plot(xx, err, 'b', 'LineWidth', 1.5);
+hold on;
+plot(xx, errcheb, 'r--', 'LineWidth', 1.5);
+legend('Равномерные узлы', 'Чебышевские узлы');
+title('Ошибка интерполяции для функции y = cot(x)');
+xlabel('x');
+ylabel('Ошибка');
+grid on;
