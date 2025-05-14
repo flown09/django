@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Мои заказы</h2>
+    <a href="{% url 'book_list' %}">На главную</a>
+    {% for order in orders %}
+      <div>
+        <p>Заказ от {{ order.created_at }} — {{ order.total }} руб.</p>
+        <ul>
+          {% for item in order.items.all %}
+            <li>{{ item.book.title }} — {{ item.quantity }} шт.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% empty %}
+      <p>У вас пока нет заказов.</p>
+    {% endfor %}
+</body>
+</html>
